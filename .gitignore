@@ -18,3 +18,5 @@ next-env.d.ts
 
 # OS
 .DS_Store
+
+/lib/generated/prisma
