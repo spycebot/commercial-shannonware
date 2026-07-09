@@ -8,6 +8,19 @@ export const T = {
   amber: '#7a5c0a',
 } as const;
 
+// Type scale — the "fine print" character lives in the ratios between these,
+// not the absolute values. Nothing below `chrome` anywhere on the site.
+export const FS = {
+  wordmark: 'clamp(40px, 12vw, 52px)',  // masthead SHANNONWARE
+  focal:    30,   // § 0 premise sentence
+  title:    24,   // FIG titles, static-page h1
+  heading:  18,   // section headings, sub-wordmarks
+  prose:    16,   // body paragraphs
+  detail:   14,   // panel bodies, log summaries, menu items
+  label:    12,   // mono section labels, date lines, footer links
+  chrome:   11,   // marginalia, telex cell labels, smallest chrome
+} as const;
+
 export const PAPER: React.CSSProperties = {
   backgroundColor: '#ede2bc',
   backgroundImage: [

@@ -1,6 +1,6 @@
 'use client';
 
-import { T, PAPER } from '@/components/tokens';
+import { T, FS, PAPER } from '@/components/tokens';
 import { useInView } from '@/components/hooks';
 import Appear from '@/components/Appear';
 import Typed from '@/components/Typed';
@@ -20,7 +20,7 @@ function Grow({ children }: { children: (active: boolean) => React.ReactNode }) 
 // ── Section furniture ─────────────────────────────────────────────────────────
 function SectionLabel({ children, mb = 10 }: { children: React.ReactNode; mb?: number }) {
   return (
-    <div style={{ fontFamily: T.mono, fontSize: 9, letterSpacing: 2, color: T.blue, marginBottom: mb }}>
+    <div style={{ fontFamily: T.mono, fontSize: FS.label, letterSpacing: 2, color: T.blue, marginBottom: mb }}>
       {children}
     </div>
   );
@@ -32,7 +32,7 @@ function BlueRule() {
 
 function Marginalia({ children, mb = 20 }: { children: React.ReactNode; mb?: number }) {
   return (
-    <div style={{ fontFamily: T.mono, fontSize: 8, letterSpacing: 1, color: T.amber, marginBottom: mb }}>
+    <div style={{ fontFamily: T.mono, fontSize: FS.chrome, letterSpacing: 1, color: T.amber, marginBottom: mb }}>
       {children}
     </div>
   );
@@ -55,8 +55,8 @@ function CapabilityPanel({ title, text }: { title: string; text: string }) {
 function DutyRow({ line, body }: { line: string; body: string }) {
   return (
     <div>
-      <div style={{ fontFamily: T.mono, fontSize: 9, letterSpacing: 1, color: T.blue }}>{line}</div>
-      <p style={{ fontFamily: T.body, fontSize: 11, color: T.ink2, lineHeight: 1.7, margin: '8px 0 0' }}>
+      <div style={{ fontFamily: T.mono, fontSize: FS.label, letterSpacing: 1, color: T.blue }}>{line}</div>
+      <p style={{ fontFamily: T.body, fontSize: FS.detail, color: T.ink2, lineHeight: 1.7, margin: '8px 0 0' }}>
         {body}
       </p>
     </div>
@@ -73,10 +73,10 @@ function TelexCell({ label, mono, right, bottom, children }: {
       borderRight: right ? `1px solid rgba(24,56,90,0.27)` : 'none',
       borderBottom: bottom ? `1px solid rgba(24,56,90,0.27)` : 'none',
     }}>
-      <div style={{ fontFamily: T.mono, fontSize: 8, letterSpacing: 2, color: T.fade }}>{label}</div>
+      <div style={{ fontFamily: T.mono, fontSize: FS.chrome, letterSpacing: 2, color: T.fade }}>{label}</div>
       <div style={{
         fontFamily: mono ? T.mono : T.body,
-        fontSize: mono ? 12 : 14,
+        fontSize: mono ? FS.detail : FS.prose,
         color: T.ink,
         marginTop: 5,
         overflowWrap: 'anywhere',
@@ -157,18 +157,18 @@ function Premise() {
       <BlueRule />
       <div ref={ref}>
         <Appear active={active}>
-          <div style={{ fontFamily: T.body, fontSize: 25, lineHeight: 1.42, color: T.ink }}>
+          <div style={{ fontFamily: T.body, fontSize: FS.focal, lineHeight: 1.42, color: T.ink }}>
             <Typed active={active} delay={250} speed={26}
               text="Working circuits, printed on paper. Interfaces that move across the page as living ink." />
           </div>
           <div style={{ marginTop: 26 }}>
-            <p style={{ fontFamily: T.body, fontSize: 13, color: T.ink, lineHeight: 1.82, margin: '0 0 14px' }}>
+            <p style={{ fontFamily: T.body, fontSize: FS.prose, color: T.ink, lineHeight: 1.82, margin: '0 0 14px' }}>
               The Shannonware interface occupies the boundary between two historically separate
               domains: the printed page and the electronic display. Whereas these have until now
               remained distinct — one static, one animated — the synthesis pursued here treats
               them as two aspects of a single substrate.
             </p>
-            <p style={{ fontFamily: T.body, fontSize: 13, color: T.ink, lineHeight: 1.82, margin: 0 }}>
+            <p style={{ fontFamily: T.body, fontSize: FS.prose, color: T.ink, lineHeight: 1.82, margin: 0 }}>
               The resulting artefact resembles a document from a divergent timeline — one in
               which computational circuits were printed on paper, dynamic interfaces moved across
               the page as living electric ink, and a working engineer maintained both.
@@ -205,12 +205,12 @@ export default function Home() {
         <Parallax factor={0.16} style={{ position: 'absolute', right: '7%', top: '74%', width: 110, height: 1.5, background: 'rgba(24,56,90,0.5)', zIndex: 0 }} />
 
         <div style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ fontFamily: T.mono, fontSize: 9, letterSpacing: 2, color: T.blue, marginBottom: 22 }}>
+          <div style={{ fontFamily: T.mono, fontSize: FS.label, letterSpacing: 2, color: T.blue, marginBottom: 22 }}>
             PERSONAL PROMOTION SITE · REV 2026.07
           </div>
           <h1 style={{
             fontFamily: T.body,
-            fontSize: 'clamp(30px, 9vw, 38px)',
+            fontSize: FS.wordmark,
             fontWeight: 'normal',
             letterSpacing: 7,
             color: T.ink,
@@ -219,10 +219,10 @@ export default function Home() {
           }}>
             SHANNON<br />WARE
           </h1>
-          <div style={{ fontFamily: T.mono, fontSize: 11, letterSpacing: 3, color: T.fade, margin: '20px 0 6px' }}>
+          <div style={{ fontFamily: T.mono, fontSize: FS.detail, letterSpacing: 3, color: T.fade, margin: '20px 0 6px' }}>
             * * * * * * * * *
           </div>
-          <div style={{ fontFamily: T.mono, fontSize: 9, letterSpacing: 2, color: T.ink2 }}>
+          <div style={{ fontFamily: T.mono, fontSize: FS.label, letterSpacing: 2, color: T.ink2 }}>
             SOFTWARE ENGINEER · BANTRY · CO. CORK · IE
           </div>
         </div>
@@ -233,7 +233,7 @@ export default function Home() {
           left: 0,
           right: 0,
           fontFamily: T.mono,
-          fontSize: 9,
+          fontSize: FS.label,
           letterSpacing: 2,
           color: T.blue,
           zIndex: 2,
@@ -259,7 +259,7 @@ export default function Home() {
               flexDirection: 'column',
             }}>
               <SectionLabel mb={6}>§ 1 · SYNTHESIS</SectionLabel>
-              <div style={{ fontFamily: T.body, fontSize: 20, color: T.ink, marginBottom: 4 }}>
+              <div style={{ fontFamily: T.body, fontSize: FS.title, color: T.ink, marginBottom: 4 }}>
                 FIG. 1 — Paper, circuit, interface.
               </div>
               <Marginalia mb={16}>⚠ SCROLL ▸ SCHEMATIC DRAWS ITSELF, STEP BY STEP</Marginalia>
@@ -277,7 +277,7 @@ export default function Home() {
                 <BlockDiagram progress={p} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 14 }}>
-                <span style={{ fontFamily: T.mono, fontSize: 9, letterSpacing: 1, color: T.blue, minWidth: 36 }}>
+                <span style={{ fontFamily: T.mono, fontSize: FS.label, letterSpacing: 1, color: T.blue, minWidth: 36 }}>
                   {String(Math.round(p * 100)).padStart(3, '0')}%
                 </span>
                 <div style={{ flex: 1, height: 2, background: 'rgba(24,56,90,0.18)' }}>
@@ -309,7 +309,7 @@ export default function Home() {
                 {FIELD_RECORD.map((r) => (
                   <DutyRow key={r.line} line={r.line} body={r.body} />
                 ))}
-                <p style={{ fontFamily: T.body, fontSize: 11, color: T.fade, fontStyle: 'italic', margin: 0 }}>
+                <p style={{ fontFamily: T.body, fontSize: FS.detail, color: T.fade, fontStyle: 'italic', margin: 0 }}>
                   (earlier roles — Rheem Manufacturing, Fort Smith AR, 1998–2001 — on request)
                 </p>
               </div>
@@ -338,10 +338,10 @@ export default function Home() {
             )}
           </Grow>
 
-          <div style={{ textAlign: 'center', marginTop: 36, fontFamily: T.body, fontSize: 16, letterSpacing: 5, color: T.ink }}>
+          <div style={{ textAlign: 'center', marginTop: 36, fontFamily: T.body, fontSize: FS.heading, letterSpacing: 5, color: T.ink }}>
             SHANNONWARE
           </div>
-          <div style={{ textAlign: 'center', fontFamily: T.mono, fontSize: 8, letterSpacing: 2, color: T.fade, marginTop: 8 }}>
+          <div style={{ textAlign: 'center', fontFamily: T.mono, fontSize: FS.chrome, letterSpacing: 2, color: T.fade, marginTop: 8 }}>
             SYSTEM NOMINAL · INTERFACE ACTIVE
           </div>
 
@@ -362,7 +362,7 @@ export default function Home() {
               { label: 'PRIVACY',   href: '/privacy'   },
             ].map(({ label, href }) => (
               <a key={href} href={href}
-                style={{ fontFamily: T.mono, fontSize: 9, color: T.fade, textDecoration: 'none', letterSpacing: 1 }}>
+                style={{ fontFamily: T.mono, fontSize: FS.label, color: T.fade, textDecoration: 'none', letterSpacing: 1 }}>
                 {label}
               </a>
             ))}

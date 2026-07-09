@@ -1,6 +1,6 @@
 'use client';
 
-import { T } from './tokens';
+import { T, FS } from './tokens';
 import Appear from './Appear';
 import Typed from './Typed';
 
@@ -16,10 +16,10 @@ export default function SH({ n, title, delay = 0, active = true }: SHProps) {
   return (
     <Appear delay={delay} active={active}>
       <div style={{ marginTop: 26, marginBottom: 10 }}>
-        <div style={{ fontFamily: T.body, fontSize: 14, color: T.ink }}>
+        <div style={{ fontFamily: T.body, fontSize: FS.heading, color: T.ink }}>
           <Typed text={`§ ${n}. ${title}`} delay={delay + 450} speed={28} active={active} />
         </div>
-        <div style={{ fontFamily: T.mono, fontSize: 9, color: T.ink2, marginTop: 1 }}>
+        <div style={{ fontFamily: T.mono, fontSize: FS.label, color: T.ink2, marginTop: 1 }}>
           <Typed text={line} delay={delay + 560} speed={9} active={active} />
         </div>
       </div>

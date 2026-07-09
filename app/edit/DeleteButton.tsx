@@ -1,7 +1,7 @@
 'use client';
 
 import { deletePost } from '@/app/actions/posts';
-import { T } from '@/components/tokens';
+import { T, FS } from '@/components/tokens';
 
 export default function DeleteButton({ id }: { id: number }) {
   async function handleDelete() {
@@ -13,7 +13,7 @@ export default function DeleteButton({ id }: { id: number }) {
     <button
       onClick={handleDelete}
       style={{
-        fontFamily: T.mono, fontSize: 9, color: '#a00',
+        fontFamily: T.mono, fontSize: FS.label, color: '#a00',
         border: '1px solid #a0000066', padding: '3px 8px',
         background: 'none', cursor: 'pointer', letterSpacing: 1,
       }}

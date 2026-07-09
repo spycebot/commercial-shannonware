@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTypewriter, useReducedMotion } from './hooks';
-import { T } from './tokens';
+import { T, FS } from './tokens';
 
 const PH = { WAIT: 0, GROW: 1, TYPE: 2, DONE: 3 } as const;
 type Phase = typeof PH[keyof typeof PH];
@@ -65,14 +65,14 @@ export default function InkPanel({ title, text, delay = 0, accent = T.blue, acti
         gap: 6,
       }}>
         <div style={{ width: 4, height: 4, background: accent, flexShrink: 0 }} />
-        <span style={{ fontFamily: T.mono, fontSize: 9, color: accent, letterSpacing: 2 }}>
+        <span style={{ fontFamily: T.mono, fontSize: FS.label, color: accent, letterSpacing: 2 }}>
           {title}
         </span>
       </div>
       <div style={{ padding: '7px 10px' }}>
         <pre style={{
           fontFamily: T.body,
-          fontSize: 12,
+          fontSize: FS.detail,
           color: T.ink,
           lineHeight: 1.65,
           margin: 0,
@@ -83,7 +83,7 @@ export default function InkPanel({ title, text, delay = 0, accent = T.blue, acti
             <span style={{
               display: 'inline-block',
               width: 6,
-              height: 12,
+              height: FS.detail,
               background: T.ink,
               marginLeft: 1,
               verticalAlign: 'middle',

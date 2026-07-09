@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { T, PAPER } from './tokens';
+import { T, FS, PAPER } from './tokens';
 import type { ReactNode } from 'react';
 
 interface Props {
@@ -23,14 +23,14 @@ export default function StaticPage({ label, title, children }: Props) {
       }}>
         <Link href="/" style={{
           fontFamily: T.mono,
-          fontSize: 10,
+          fontSize: FS.label,
           color: T.blue,
           textDecoration: 'none',
           letterSpacing: 2,
         }}>
           ← SHANNONWARE
         </Link>
-        <span style={{ fontFamily: T.mono, fontSize: 9, color: T.fade, letterSpacing: 2 }}>
+        <span style={{ fontFamily: T.mono, fontSize: FS.label, color: T.fade, letterSpacing: 2 }}>
           {label}
         </span>
       </div>
@@ -39,7 +39,7 @@ export default function StaticPage({ label, title, children }: Props) {
       <div style={{ maxWidth: 720, margin: '0 auto', padding: '40px 24px' }}>
         <h1 style={{
           fontFamily: T.mono,
-          fontSize: 22,
+          fontSize: FS.title,
           color: T.blue,
           letterSpacing: 3,
           borderBottom: `1px solid ${T.blue}44`,
@@ -51,7 +51,7 @@ export default function StaticPage({ label, title, children }: Props) {
         </h1>
         <div style={{
           fontFamily: T.body,
-          fontSize: 14,
+          fontSize: FS.prose,
           color: T.ink,
           lineHeight: 1.8,
         }}>
@@ -76,7 +76,7 @@ export default function StaticPage({ label, title, children }: Props) {
         ].map(({ label, href }) => (
           <Link key={href} href={href} style={{
             fontFamily: T.mono,
-            fontSize: 9,
+            fontSize: FS.label,
             color: T.fade,
             textDecoration: 'none',
             letterSpacing: 1,
