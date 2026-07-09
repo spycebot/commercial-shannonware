@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import Link from 'next/link';
-import { T } from './tokens';
+import { T, FS } from './tokens';
 
 export default function GearMenu() {
   const [open, setOpen] = useState(false);
@@ -33,7 +33,7 @@ export default function GearMenu() {
           padding: '5px 8px',
           cursor: 'pointer',
           fontFamily: T.mono,
-          fontSize: 14,
+          fontSize: FS.prose,
           color: T.blue,
           lineHeight: 1,
         }}
@@ -78,7 +78,7 @@ export default function GearMenu() {
           padding: '14px 14px 10px',
           borderBottom: `1px solid ${T.blue}44`,
         }}>
-          <span style={{ fontFamily: T.mono, fontSize: 10, color: T.blue, letterSpacing: 2 }}>
+          <span style={{ fontFamily: T.mono, fontSize: FS.label, color: T.blue, letterSpacing: 2 }}>
             ⚙ SETTINGS
           </span>
           <button
@@ -89,7 +89,7 @@ export default function GearMenu() {
               border: 'none',
               cursor: 'pointer',
               fontFamily: T.mono,
-              fontSize: 13,
+              fontSize: FS.prose,
               color: T.blue,
               padding: '0 2px',
             }}
@@ -102,7 +102,7 @@ export default function GearMenu() {
         <div style={{ padding: '14px', flex: 1, overflow: 'auto' }}>
 
           {/* Operator section */}
-          <div style={{ fontFamily: T.mono, fontSize: 8, color: T.blue, letterSpacing: 2, marginBottom: 10 }}>
+          <div style={{ fontFamily: T.mono, fontSize: FS.chrome, color: T.blue, letterSpacing: 2, marginBottom: 10 }}>
             OPERATOR
           </div>
 
@@ -110,7 +110,7 @@ export default function GearMenu() {
             <>
               <div style={{
                 fontFamily: T.body,
-                fontSize: 11,
+                fontSize: FS.detail,
                 color: T.ink,
                 marginBottom: 8,
                 opacity: 0.7,
@@ -123,7 +123,7 @@ export default function GearMenu() {
                 style={{
                   display: 'block',
                   fontFamily: T.body,
-                  fontSize: 12,
+                  fontSize: FS.detail,
                   color: T.ink,
                   textDecoration: 'none',
                   border: `1px solid ${T.blue}`,
@@ -141,7 +141,7 @@ export default function GearMenu() {
                 onClick={() => { signOut(); setOpen(false); }}
                 style={{
                   fontFamily: T.body,
-                  fontSize: 12,
+                  fontSize: FS.detail,
                   color: T.ink,
                   border: `1px solid ${T.blue}`,
                   background: 'rgba(243,232,202,0.7)',
@@ -160,7 +160,7 @@ export default function GearMenu() {
               onClick={() => signIn('google')}
               style={{
                 fontFamily: T.body,
-                fontSize: 12,
+                fontSize: FS.detail,
                 color: T.ink,
                 border: `1px solid ${T.blue}`,
                 background: 'rgba(243,232,202,0.7)',
@@ -178,7 +178,7 @@ export default function GearMenu() {
           <hr style={{ border: 'none', borderTop: `1px solid ${T.blue}44`, marginBottom: 14 }} />
 
           {/* Navigation links */}
-          <div style={{ fontFamily: T.mono, fontSize: 8, color: T.blue, letterSpacing: 2, marginBottom: 10 }}>
+          <div style={{ fontFamily: T.mono, fontSize: FS.chrome, color: T.blue, letterSpacing: 2, marginBottom: 10 }}>
             NAVIGATE
           </div>
           {navLinks.map(({ label, href }) => (
@@ -189,7 +189,7 @@ export default function GearMenu() {
               style={{
                 display: 'block',
                 fontFamily: T.body,
-                fontSize: 12,
+                fontSize: FS.detail,
                 color: T.ink,
                 textDecoration: 'none',
                 padding: '5px 0',
@@ -203,7 +203,7 @@ export default function GearMenu() {
           <hr style={{ border: 'none', borderTop: `1px solid ${T.blue}44`, margin: '14px 0' }} />
 
           {/* Accessibility */}
-          <div style={{ fontFamily: T.mono, fontSize: 8, color: T.blue, letterSpacing: 2, marginBottom: 10 }}>
+          <div style={{ fontFamily: T.mono, fontSize: FS.chrome, color: T.blue, letterSpacing: 2, marginBottom: 10 }}>
             ACCESSIBILITY
           </div>
           <label style={{
@@ -211,7 +211,7 @@ export default function GearMenu() {
             alignItems: 'center',
             gap: 8,
             fontFamily: T.body,
-            fontSize: 12,
+            fontSize: FS.detail,
             color: T.ink,
             cursor: 'pointer',
           }}>
@@ -227,7 +227,7 @@ export default function GearMenu() {
 
         {/* Footer */}
         <div style={{ padding: '10px 14px', borderTop: `1px solid ${T.blue}33` }}>
-          <span style={{ fontFamily: T.mono, fontSize: 8, color: T.fade, letterSpacing: 1 }}>
+          <span style={{ fontFamily: T.mono, fontSize: FS.chrome, color: T.fade, letterSpacing: 1 }}>
             SHANNONWARE · BUILD 2.0.0
           </span>
         </div>

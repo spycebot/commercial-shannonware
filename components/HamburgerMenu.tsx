@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { T } from './tokens';
+import { T, FS } from './tokens';
 
 export default function HamburgerMenu() {
   const [open, setOpen] = useState(false);
@@ -68,7 +68,7 @@ export default function HamburgerMenu() {
           padding: '14px 14px 10px',
           borderBottom: `1px solid ${T.blue}44`,
         }}>
-          <span style={{ fontFamily: T.mono, fontSize: 10, color: T.blue, letterSpacing: 2 }}>
+          <span style={{ fontFamily: T.mono, fontSize: FS.label, color: T.blue, letterSpacing: 2 }}>
             ▸ ARTICLES
           </span>
           <button
@@ -79,7 +79,7 @@ export default function HamburgerMenu() {
               border: 'none',
               cursor: 'pointer',
               fontFamily: T.mono,
-              fontSize: 13,
+              fontSize: FS.prose,
               color: T.blue,
               padding: '0 2px',
             }}
@@ -90,14 +90,14 @@ export default function HamburgerMenu() {
 
         {/* Panel body */}
         <div style={{ padding: '16px 14px', flex: 1, overflow: 'auto' }}>
-          <p style={{ fontFamily: T.body, fontSize: 12, color: T.ink2, fontStyle: 'italic', lineHeight: 1.6 }}>
+          <p style={{ fontFamily: T.body, fontSize: FS.detail, color: T.ink2, fontStyle: 'italic', lineHeight: 1.6 }}>
             No articles yet.
           </p>
         </div>
 
         {/* Footer */}
         <div style={{ padding: '10px 14px', borderTop: `1px solid ${T.blue}33` }}>
-          <span style={{ fontFamily: T.mono, fontSize: 8, color: T.fade, letterSpacing: 1 }}>
+          <span style={{ fontFamily: T.mono, fontSize: FS.chrome, color: T.fade, letterSpacing: 1 }}>
             SHANNONWARE · ARTICLE ARCHIVE
           </span>
         </div>

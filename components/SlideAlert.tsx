@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { T } from './tokens';
+import { T, FS } from './tokens';
 
 interface SlideAlertProps {
   side?: 'left' | 'right';
@@ -46,11 +46,11 @@ export default function SlideAlert({ side = 'right', yPct = '30%', text, sub, de
         background: 'rgba(243,232,202,0.93)',
         padding: '6px 9px',
       }}>
-        <div style={{ fontFamily: T.mono, fontSize: 9, color: accent, letterSpacing: 1.5, marginBottom: 2 }}>
+        <div style={{ fontFamily: T.mono, fontSize: FS.label, color: accent, letterSpacing: 1.5, marginBottom: 2 }}>
           {text}
         </div>
         {sub && (
-          <div style={{ fontFamily: T.body, fontSize: 10, color: T.fade }}>
+          <div style={{ fontFamily: T.body, fontSize: FS.detail, color: T.fade }}>
             {sub}
           </div>
         )}

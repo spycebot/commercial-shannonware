@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
-import { T, PAPER } from '@/components/tokens';
+import { T, FS, PAPER } from '@/components/tokens';
 import PostForm from './PostForm';
 import DeleteButton from './DeleteButton';
 
@@ -34,10 +34,10 @@ export default async function EditPage({
         alignItems: 'center',
         justifyContent: 'space-between',
       }}>
-        <Link href="/" style={{ fontFamily: T.mono, fontSize: 10, color: T.blue, textDecoration: 'none', letterSpacing: 2 }}>
+        <Link href="/" style={{ fontFamily: T.mono, fontSize: FS.label, color: T.blue, textDecoration: 'none', letterSpacing: 2 }}>
           ← SHANNONWARE
         </Link>
-        <span style={{ fontFamily: T.mono, fontSize: 9, color: T.fade, letterSpacing: 2 }}>
+        <span style={{ fontFamily: T.mono, fontSize: FS.label, color: T.fade, letterSpacing: 2 }}>
           EDIT MODE · {session.user?.email}
         </span>
       </div>
@@ -45,7 +45,7 @@ export default async function EditPage({
       <div style={{ maxWidth: 800, margin: '0 auto', padding: '40px 24px' }}>
 
         {/* Form: new or edit */}
-        <h2 style={{ fontFamily: T.mono, fontSize: 16, color: T.blue, letterSpacing: 3, marginBottom: 24, textTransform: 'uppercase' }}>
+        <h2 style={{ fontFamily: T.mono, fontSize: FS.heading, color: T.blue, letterSpacing: 3, marginBottom: 24, textTransform: 'uppercase' }}>
           {editingPost ? `Editing: ${editingPost.title}` : 'New Post'}
         </h2>
         <PostForm post={editingPost} />
@@ -54,7 +54,7 @@ export default async function EditPage({
         {posts.length > 0 && (
           <>
             <div style={{ borderTop: `1px solid ${T.blue}44`, margin: '40px 0 24px' }} />
-            <h2 style={{ fontFamily: T.mono, fontSize: 16, color: T.blue, letterSpacing: 3, marginBottom: 20, textTransform: 'uppercase' }}>
+            <h2 style={{ fontFamily: T.mono, fontSize: FS.heading, color: T.blue, letterSpacing: 3, marginBottom: 20, textTransform: 'uppercase' }}>
               All Posts
             </h2>
             {posts.map(post => (
@@ -67,8 +67,8 @@ export default async function EditPage({
                 gap: 12,
               }}>
                 <div style={{ flex: 1 }}>
-                  <span style={{ fontFamily: T.body, fontSize: 13, color: T.ink }}>{post.title}</span>
-                  <span style={{ fontFamily: T.mono, fontSize: 9, color: T.fade, marginLeft: 10, letterSpacing: 1 }}>
+                  <span style={{ fontFamily: T.body, fontSize: FS.prose, color: T.ink }}>{post.title}</span>
+                  <span style={{ fontFamily: T.mono, fontSize: FS.label, color: T.fade, marginLeft: 10, letterSpacing: 1 }}>
                     {post.type.toUpperCase()} · {post.published ? 'PUBLISHED' : 'DRAFT'}
                   </span>
                 </div>
@@ -76,7 +76,7 @@ export default async function EditPage({
                   <Link
                     href={`/edit?edit=${post.id}`}
                     style={{
-                      fontFamily: T.mono, fontSize: 9, color: T.blue,
+                      fontFamily: T.mono, fontSize: FS.label, color: T.blue,
                       border: `1px solid ${T.blue}`, padding: '3px 8px',
                       textDecoration: 'none', letterSpacing: 1,
                     }}

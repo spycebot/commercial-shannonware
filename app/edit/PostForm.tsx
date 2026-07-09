@@ -2,13 +2,13 @@
 
 import { useRef } from 'react';
 import { createPost, updatePost } from '@/app/actions/posts';
-import { T } from '@/components/tokens';
+import { T, FS } from '@/components/tokens';
 import type { Post } from '@prisma/client';
 
 const input: React.CSSProperties = {
   width: '100%',
   fontFamily: T.body,
-  fontSize: 13,
+  fontSize: FS.prose,
   color: T.ink,
   background: 'rgba(255,255,255,0.35)',
   border: `1px solid ${T.blue}66`,
@@ -28,7 +28,7 @@ export default function PostForm({ post }: { post: Post | null }) {
   return (
     <form ref={formRef} action={action}>
       {/* Title */}
-      <label style={{ fontFamily: T.mono, fontSize: 9, color: T.blue, letterSpacing: 2, display: 'block', marginBottom: 4 }}>
+      <label style={{ fontFamily: T.mono, fontSize: FS.label, color: T.blue, letterSpacing: 2, display: 'block', marginBottom: 4 }}>
         TITLE
       </label>
       <input
@@ -39,7 +39,7 @@ export default function PostForm({ post }: { post: Post | null }) {
       />
 
       {/* Type */}
-      <label style={{ fontFamily: T.mono, fontSize: 9, color: T.blue, letterSpacing: 2, display: 'block', marginBottom: 4 }}>
+      <label style={{ fontFamily: T.mono, fontSize: FS.label, color: T.blue, letterSpacing: 2, display: 'block', marginBottom: 4 }}>
         TYPE
       </label>
       <select
@@ -52,7 +52,7 @@ export default function PostForm({ post }: { post: Post | null }) {
       </select>
 
       {/* Content */}
-      <label style={{ fontFamily: T.mono, fontSize: 9, color: T.blue, letterSpacing: 2, display: 'block', marginBottom: 4 }}>
+      <label style={{ fontFamily: T.mono, fontSize: FS.label, color: T.blue, letterSpacing: 2, display: 'block', marginBottom: 4 }}>
         CONTENT (MARKDOWN)
       </label>
       <textarea
@@ -66,7 +66,7 @@ export default function PostForm({ post }: { post: Post | null }) {
       {/* Published */}
       <label style={{
         display: 'flex', alignItems: 'center', gap: 8,
-        fontFamily: T.body, fontSize: 12, color: T.ink,
+        fontFamily: T.body, fontSize: FS.detail, color: T.ink,
         cursor: 'pointer', marginBottom: 20,
       }}>
         <input
@@ -80,7 +80,7 @@ export default function PostForm({ post }: { post: Post | null }) {
 
       <div style={{ display: 'flex', gap: 10 }}>
         <button type="submit" style={{
-          fontFamily: T.mono, fontSize: 10, letterSpacing: 2,
+          fontFamily: T.mono, fontSize: FS.label, letterSpacing: 2,
           color: '#fff', background: T.blue,
           border: 'none', padding: '10px 20px', cursor: 'pointer',
         }}>
@@ -88,7 +88,7 @@ export default function PostForm({ post }: { post: Post | null }) {
         </button>
         {post && (
           <a href="/edit" style={{
-            fontFamily: T.mono, fontSize: 10, letterSpacing: 2,
+            fontFamily: T.mono, fontSize: FS.label, letterSpacing: 2,
             color: T.blue, border: `1px solid ${T.blue}`,
             padding: '10px 20px', textDecoration: 'none',
           }}>

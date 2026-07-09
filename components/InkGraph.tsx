@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { useInterval } from './hooks';
-import { T } from './tokens';
+import { T, FS } from './tokens';
 
 interface InkGraphProps {
   label?: string;
@@ -35,7 +35,7 @@ export default function InkGraph({ label, w = 280, h = 52 }: InkGraphProps) {
       {label && (
         <div style={{
           fontFamily: T.mono,
-          fontSize: 8,
+          fontSize: FS.chrome,
           color: T.blue,
           letterSpacing: 1.5,
           marginBottom: 3,

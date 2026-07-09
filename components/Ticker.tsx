@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useInterval } from './hooks';
-import { T } from './tokens';
+import { T, FS } from './tokens';
 
 export default function Ticker() {
   const msgs = [
@@ -24,7 +24,7 @@ export default function Ticker() {
       marginTop: 30,
       overflow: 'hidden',
     }}>
-      <span style={{ fontFamily: T.mono, fontSize: 9, color: T.blue, letterSpacing: 1, opacity: 0.72 }}>
+      <span style={{ fontFamily: T.mono, fontSize: FS.label, color: T.blue, letterSpacing: 1, opacity: 0.72 }}>
         {view}
       </span>
     </div>
