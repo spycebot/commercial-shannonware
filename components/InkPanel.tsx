@@ -78,7 +78,7 @@ export default function InkPanel({ title, text, delay = 0, accent = T.blue, acti
           margin: 0,
           whiteSpace: 'pre-wrap',
         }}>
-          {reduced ? text : typed}
+          {reduced || phase === PH.DONE ? text : typed}
           {phase === PH.TYPE && !done && !reduced && (
             <span style={{
               display: 'inline-block',
