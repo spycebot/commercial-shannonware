@@ -73,6 +73,18 @@ export default async function EditPage({
                   </span>
                 </div>
                 <div style={{ display: 'flex', gap: 8 }}>
+                  {post.published && (
+                    <Link
+                      href={post.type === 'article' ? `/articles/${post.slug}` : `/#dispatches`}
+                      style={{
+                        fontFamily: T.mono, fontSize: FS.label, color: T.fade,
+                        border: `1px solid ${T.fade}`, padding: '3px 8px',
+                        textDecoration: 'none', letterSpacing: 1,
+                      }}
+                    >
+                      VIEW
+                    </Link>
+                  )}
                   <Link
                     href={`/edit?edit=${post.id}`}
                     style={{

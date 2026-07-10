@@ -1,9 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { T, FS } from './tokens';
 
-export default function HamburgerMenu() {
+export default function HamburgerMenu({ articles = [] }: {
+  articles?: { title: string; slug: string }[];
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -90,9 +93,33 @@ export default function HamburgerMenu() {
 
         {/* Panel body */}
         <div style={{ padding: '16px 14px', flex: 1, overflow: 'auto' }}>
-          <p style={{ fontFamily: T.body, fontSize: FS.detail, color: T.ink2, fontStyle: 'italic', lineHeight: 1.6 }}>
-            No articles yet.
-          </p>
+          {articles.length === 0 ? (
+            <p style={{ fontFamily: T.body, fontSize: FS.detail, color: T.ink2, fontStyle: 'italic', lineHeight: 1.6 }}>
+              No articles yet.
+            </p>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {articles.map((a) => (
+                <Link
+                  key={a.slug}
+                  href={`/articles/${a.slug}`}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    fontFamily: T.body,
+                    fontSize: FS.detail,
+                    color: T.ink,
+                    textDecoration: 'none',
+                    lineHeight: 1.5,
+                    borderBottom: `1px solid ${T.blue}22`,
+                    paddingBottom: 10,
+                  }}
+                >
+                  <span style={{ fontFamily: T.mono, color: T.blue }}>▸ </span>
+                  {a.title}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Footer */}
